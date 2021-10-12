@@ -27,7 +27,7 @@ class CreateDiaristasTable extends Migration
             $table->char('estado', 2);
             $table->integer('codigo_ibge');
             $table->string('foto_usuario');                 
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 
