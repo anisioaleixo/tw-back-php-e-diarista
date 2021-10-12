@@ -14,8 +14,30 @@
 </head>
 
 <body>
-    <h1>Pagina inicial</h1>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('diaristas.index')}}">E-Diaristas</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ route('diaristas.index')}}">
+                                Lista de Diaristas
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="container">
+        <h1>Lista de diaristas</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -28,12 +50,19 @@
             <tbody>
                 @forelse ($diaristas as $diarista)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">{{$diarista->id}}</th>
+                    <td>{{$diarista->nome_completo}}</td>
+                    <td>{{$diarista->telefone}}</td>
+                    <td>{{$diarista->nome_completo}}</td>
                 </tr>
                 @empty
+                <tr>
+                    <th scope="row">0</th>
+                    <td>Nenhum regitro cadastrado</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                @endforelse
 
             </tbody>
         </table>
